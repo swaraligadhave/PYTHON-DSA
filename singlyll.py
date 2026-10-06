@@ -17,10 +17,14 @@ class LinkedList:
             temp.next=new_node # append new node
 
     def print(self):
+        sum = 0
+
         temp = self.head
         while temp: #checks if temp has some data 
-            print(temp.data)
-            temp = temp.next
+            if temp.data>0:
+                sum+= temp.data
+            temp=temp.next
+        print(sum)
 
 list=LinkedList()
 n1=Node(10)

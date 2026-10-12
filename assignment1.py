@@ -93,7 +93,21 @@ def delfirst_last(self):
         temp = temp.next
     prev.next=None
     temp = None
-    
+
+    # delete alternate nodes in singly linked list
+
+def del_alternate(self):
+    prev = self.head
+    temp = self.head.next
+
+    while prev and temp:
+        prev.next = temp.next
+        temp = None # actual deletion of node
+        prev = prev.next 
+
+        if prev:
+            temp = prev.next
+
     # 5.delete node by value
     def delete(self,key):
         temp = self.head
@@ -163,3 +177,6 @@ list.print()
 #sum of two consecutive nodes
 print("Sum of every two consecutive nodes:")
 list.sum()
+
+list.del_alternate()
+list.print()

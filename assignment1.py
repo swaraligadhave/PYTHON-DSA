@@ -70,7 +70,30 @@ class LinkedList:
 
         print("Middle node:",slow.data)
 
+    #  def findmid_del(self): Alternate method 
+    # temp = temp1 = self.head
+    # prev=None
+    # while temp1 and temp1.next:
+    #     prev = temp
+    #     temp = temp.next
+    #     temp1=temp1.next.next
+    # print("Middle node: ",temp.data)
+    # prev.next = temp.next
+    # temp = None    
 
+# for deleting first and last node 
+
+def delfirst_last(self):
+    temp1 = self.head
+    temp1 = None
+    prev = None
+    temp = self.head = self.head.next 
+    while(temp.next):
+        prev = temp
+        temp = temp.next
+    prev.next=None
+    temp = None
+    
     # 5.delete node by value
     def delete(self,key):
         temp = self.head

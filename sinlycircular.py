@@ -1,4 +1,5 @@
-# singly linear linked list
+# circular singly linear linked list
+# updated means the change between singly linear and circular sinly linear,rest code is the same
 class Node:
     def __init__(self,val):
         self.data = val
@@ -37,24 +38,25 @@ class LinkedList:
             new_node.next = temp.next
             temp.next = new_node
     
-    def del_node(self,value): #deleting first node 
+    def delete(self,value): #deleting first node 
         temp = self.head 
         prev = None
-        if temp.data == value: 
+        if temp.data == value:
+            while(temp.next != self.head): #updated / find last node
+                temp = temp.next #updated
             self.head = self.head.next
-            return
+            temp.next = self.head #updated
 
-        while(temp):
-            if temp.data == value:
-                break
-            else:
+        else: # this whole else block is updated 
+            while(temp.data!=value):
                 prev = temp
                 temp = temp.next
-        if temp == None:
-            print("Value is not there in list")
+                if temp == self.head: 
+                    print("Value not in list")
+                    return
 
-        prev.next = temp.next
-        temp = None
+            prev.next = temp.next # copies address of head 
+            temp = None
 
         # def reverse(self): #reversing the list
         #     curr = self.head
@@ -104,8 +106,8 @@ list.print()
 # list.print()
 # list.insert(Node(90),8)
 # list.print()
-# list.del_node(45) # gives output as value not there in list 
-# list.print()
+list.delete(10) 
+list.print()
 
 n5 = Node(60)
 list.append(n5)

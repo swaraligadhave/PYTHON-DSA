@@ -1,4 +1,5 @@
 #level order
+#highest level node is your height of tree
 class Node:
     def __init__(self, value):
         self.left=None
@@ -44,15 +45,23 @@ class BST:
             return
         arr=[]
         cnt=0 #for continuing visted node
+        level = 0 #for getting count level wise
         arr.append(rt)  
         while cnt<len(arr):
-            temp=arr[cnt]
-            cnt+=1
-            print(temp.data,end=" ")
-            if temp.left:
-                arr.append(temp.left)
-            if temp.right:
-                arr.append(temp.right)
+            node_count = len(arr)-cnt #no of nodes to be visited
+            print("\n Level: ", level, end = " ")
+            for i in range(node_count):
+                temp=arr[cnt]
+                cnt+=1
+                print(temp.data,end=" ")
+                if temp.left:
+                    arr.append(temp.left)
+                if temp.right:
+                    arr.append(temp.right)
+
+            level += 1
+        print("\n Height of the tree:", level-1)
+
 
 b1=BST()
 b1.insert(Node(100))
@@ -64,4 +73,6 @@ b1.insert(Node(300))
 b1.insert(Node(500))
 b1.insert(Node(50))
 b1.insert(Node(70))
+print("\n Level order traversal:")
 b1.level_order(b1.root)
+
